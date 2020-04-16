@@ -13,7 +13,7 @@ class Dog
       CREATE TABLE IF NOT EXISTS dogs (
         id INTEGER PRIMARY KEY,
         name TEXT,
-        age INTEGER
+        breed TEXT
       )
     SQL
 
@@ -29,10 +29,6 @@ class Dog
   end
 
   def self.new_from_db(row)
-    new_dog = self.new
-    new_dog.id = row[0]
-    new_dog.name = row[1]
-    new_dog.age = row[2]
-    new_dog
+    new_dog = self.new(id: row[0], name: row[1], breed: row[2] )
   end
 end
